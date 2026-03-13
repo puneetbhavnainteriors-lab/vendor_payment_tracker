@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>API Test</h1>
+  <div id="output"></div>
+  <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyuvPZHMIR3KpXS7_nh36E95UznvRwEGN7JMmhaPl2LQk-K9peikbcLV2I07Nd74XbKag/exec';
+    fetch(API_URL + '?action=getProjects')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('output').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+      })
+      .catch(err => {
+        document.getElementById('output').innerHTML = 'Error: ' + err;
+      });
+  </script>
+</body>
+</html>
